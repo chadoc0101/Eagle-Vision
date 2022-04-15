@@ -272,7 +272,7 @@ class ResnetModel:
         img = self.test_transform(img)
         img = img.unsqueeze(0)
         img = img.to(self.device)
-        # self.model.eval()
+        
         output_tensor = self.model(img)
         prob_tensor = torch.nn.Softmax(dim=1)(output_tensor)
         top_k = torch.topk(prob_tensor, k, dim=1)
